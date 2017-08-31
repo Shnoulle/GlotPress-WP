@@ -266,11 +266,11 @@ $i = 0;
 		$glossary_entries = $glossary->get_entries();
 		$glossary_entries_terms = gp_sort_glossary_entries_terms( $glossary_entries );
 	}
-	
+
 	$root_locale = null;
 	$root_translation_set = null;
 	$has_root = null;
-	
+
 	if ( null !== $locale->variant_root ) {
 		$root_locale = GP_Locales::by_slug( $locale->variant_root );
 		$root_translation_set = GP::$translation_set->by_project_id_slug_and_locale( $project->id, $translation_set->slug, $locale->variant_root );
@@ -285,7 +285,7 @@ $i = 0;
 		if ( ! $t->translation_set_id ) {
 			$t->translation_set_id = $translation_set->id;
 		}
-		
+
 		$can_approve_translation = GP::$permission->current_user_can( 'approve', 'translation', $t->id, array( 'translation' => $t ) );
 		gp_tmpl_load( 'translation-row', get_defined_vars() );
 ?>

@@ -171,13 +171,13 @@ if ( is_object( $glossary ) ) {
 			</dl>
 			-->
 
-			<?php if ( property_exists( $t, 'root_translation_set_id' ) ): ?>
+			<?php if ( property_exists( $t, 'root_translation_set_id' ) ) : ?>
 			<dl>
 				<dt><?php _e( 'Root Translaton:', 'glotpress' ); ?></dt>
-			<?php if ( $t->translation_set_id === $t->root_translation_set_id ): ?>
+			<?php if ( $t->translation_set_id === $t->root_translation_set_id ) : ?>
 				<dd><?php gp_link( gp_url_project_locale( $project, $root_locale->slug, $root_translation_set->slug, array( 'filters[status]' => 'either', 'filters[original_id]' => $t->original_id, 'filters[translation_id]' => $t->id ) ), $root_translation_set->name_with_locale() );
  ?></dd>
-			<?php else: ?>
+			<?php else : ?>
 				<dd><?php _e( 'False', 'glotpress' ); ?></dd>
 			<?php endif; ?>
 			</dl>
